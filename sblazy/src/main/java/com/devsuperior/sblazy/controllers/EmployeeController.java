@@ -1,8 +1,7 @@
 package com.devsuperior.sblazy.controllers;
 
 import com.devsuperior.sblazy.dtos.EmployeeDTO;
-import com.devsuperior.sblazy.entities.Employee;
-import com.devsuperior.sblazy.services.GenericsService;
+import com.devsuperior.sblazy.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,7 @@ import static org.springframework.http.ResponseEntity.status;
 @RequestMapping(value = "/employees")
 public class EmployeeController {
     @Autowired
-    private GenericsService<Employee, EmployeeDTO, Long> service;
+    private EmployeeService service;
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<EmployeeDTO> findById(@PathVariable Long id) {
